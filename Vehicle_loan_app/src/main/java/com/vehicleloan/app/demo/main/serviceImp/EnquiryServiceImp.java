@@ -17,8 +17,17 @@ public class EnquiryServiceImp implements EnquiryServiceInterface {
 
 	@Override
 	public EnquiryDetails saveEnquiry(EnquiryDetails ed) {
-	
-		return er.save(ed);
+	 Optional<EnquiryDetails> opEnquiry=	er.findByEmail(ed.getEmail());
+	       if(opEnquiry.isEmpty())
+	       {
+	    	   ed.setEnquiryStatus("Register");
+	    	   return er.save(ed);
+	       }
+	       else {
+	    	   // Throw new EnquiryAlreadyRegisteredException()
+	    	   return null;
+	       }
+		
 	}
 
 	@Override
