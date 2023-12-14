@@ -23,5 +23,6 @@ public class EnquiryDetails {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Cibil cibilSCore;
 	private String enquiryStatus;
+	private int requiredloanAmount;
 
 }
