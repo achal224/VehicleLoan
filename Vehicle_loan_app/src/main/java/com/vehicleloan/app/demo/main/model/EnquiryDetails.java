@@ -13,16 +13,16 @@ public class EnquiryDetails {
 	
 	@Id
 	@GeneratedValue(strategy =jakarta.persistence.GenerationType.AUTO)
-	private int cID;
+	private int cid;
 	private String firstName;
 	private  String lastName;
 	private int age;
 	private String email;
 	private long mobileNo;
 	private long pancardNo;
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.MERGE.DETACH.REFRESH.REMOVE)
 	private Cibil cibilSCore;
 	private String enquiryStatus;
-	private int requiredloanAmount;
+	private int loanammount;
 
 }
