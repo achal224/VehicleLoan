@@ -10,4 +10,6 @@ public interface EnquiryDetailsRepository extends JpaRepository<EnquiryDetails, 
 
  public	Optional<EnquiryDetails> findByEmail(String email);
 
+public Optional<EnquiryDetails> findAllByEnquiryStatus(String string);
+
 }

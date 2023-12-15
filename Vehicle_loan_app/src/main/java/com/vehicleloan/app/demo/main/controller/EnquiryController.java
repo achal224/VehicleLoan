@@ -33,10 +33,17 @@ public class EnquiryController {
 		return list;
 	}
 	
-	@RequestMapping("/getallEnquiryByid/{cID}")
-	public EnquiryDetails getByid(@PathVariable("cID") int cID)
+	@RequestMapping("/getallEnquiryByid/{cid}")
+	public EnquiryDetails getByid(@PathVariable("cid") int cid)
 	{
-		EnquiryDetails e=esi.getByid(cID);
+		EnquiryDetails e=esi.getByid(cid);
 		return e;
+	}
+	
+	@RequestMapping("/getallRegisteredEnquiry")
+	public Iterable getallRegisteredEnquiry()
+	{
+		Iterable list=esi.getallRegisteredEnquiry();
+		return list;
 	}
 }

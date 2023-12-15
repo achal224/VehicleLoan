@@ -8,6 +8,8 @@ public interface EnquiryServiceInterface {
 
 	public Iterable displayAllData();
 
-	public EnquiryDetails getByid(int cID);
+	public EnquiryDetails getByid(int cid);
+
+	public Iterable getallRegisteredEnquiry();
 
 }
