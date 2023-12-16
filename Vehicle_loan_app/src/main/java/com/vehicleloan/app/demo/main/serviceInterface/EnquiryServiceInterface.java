@@ -6,10 +6,16 @@ public interface EnquiryServiceInterface {
 
 	public EnquiryDetails saveEnquiry(EnquiryDetails ed);
 
-	public Iterable displayAllData();
+	public Iterable viewEnquiryForRM();
 
-	public EnquiryDetails getByid(int cid);
+	public EnquiryDetails RequiredcibilScore(int cid);
 
 	public Iterable getallRegisteredEnquiry();
+
+	public void setCibil(int cid);
+
+	public EnquiryDetails setFinalSatatus(int cid, String enquiryStatus);
+
+	
 
 }
