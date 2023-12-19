@@ -23,34 +23,27 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int customerId;
-	private int enquiryId;
-	private String customerName;
+	@OneToOne(cascade = CascadeType.ALL)
+	private EnquiryDetails enquiry;
 	private String customerDateOfBirth;
-	private int customerAge;
 	private String customerGender;
-	private String customerEmail;
-	private long customerMobileNumber;
 	private long customerAdditionalMobilenumber;
-	private double customerAmountPaidForLoan;
-	private double customerTotalLoanRequired;
+	private String localAddress;
+	private String permanentAddress;
+	private String loanAppStatus;
+	private double customerAmountPaidForVehicle;
 	@OneToOne(cascade = CascadeType.ALL)
 	private EductionalInfo educationalInfo;
    @OneToOne(cascade = CascadeType.ALL)
    private AllPersonalDocs allpersonalDocs;
-    @OneToOne(cascade = CascadeType.ALL)
-    private CustomerAddress customerAddress;
    @OneToOne(cascade = CascadeType.ALL)
    private Profession prefession;
-  @OneToOne(cascade = CascadeType.ALL)
-  private Cibil cibilescore;
    @OneToOne(cascade = CascadeType.ALL)
    private CurrentLoanDetails currentloandetails;
   @OneToOne(cascade = CascadeType.ALL)
   private PreviousLoan previousloan;
  @OneToOne(cascade = CascadeType.ALL)
  private AccountDetails accountdetails;
-
-
 @OneToOne(cascade = CascadeType.ALL)
 GurantorDetails gurantordetails;
 @OneToOne(cascade = CascadeType.MERGE.DETACH.REFRESH.REMOVE)
