@@ -14,11 +14,6 @@ public class SanctionController {
 	@Autowired
 	SanctionServiceInterface ssi;
 	
-	@GetMapping("getAllApprovedEnquiry")
-	 public Iterable getAllApprovedEnquiry()
-	 {
-		Iterable list=ssi.getAllApprovedEnquiry();
-		return list;
-	 }
+	
 
 }

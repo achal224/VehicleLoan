@@ -2,10 +2,7 @@ package com.vehicleloan.app.demo.main.model;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,17 +18,21 @@ import lombok.NoArgsConstructor;
 public class Customer {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int customerId;
-	@OneToOne(cascade = CascadeType.ALL)
-	private EnquiryDetails enquiry;
+	private String customerName;
+	private int customerAge;
+	private String customerEmail;
+	private int customerTotalLoanRequired;
 	private String customerDateOfBirth;
 	private String customerGender;
+	private int customerMobileNumber;
 	private long customerAdditionalMobilenumber;
 	private String localAddress;
 	private String permanentAddress;
 	private String loanAppStatus;
 	private double customerAmountPaidForVehicle;
+	private int cibilScore;
+	private String remark;
 	@OneToOne(cascade = CascadeType.ALL)
 	private EductionalInfo educationalInfo;
    @OneToOne(cascade = CascadeType.ALL)

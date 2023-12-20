@@ -14,13 +14,5 @@ import com.vehicleloan.app.demo.main.serviceInterface.SanctionServiceInterface;
 @Service
 public class SanctionServiceImp implements SanctionServiceInterface {
 
-	@Autowired
-	CustomerRepository cr;
-	
-	@Override
-	public Iterable getAllApprovedEnquiry() {
-		List<Customer> loanapp =cr.findAllByLoanAppStatus("Created");
-		return loanapp;
-	}
 
 }
