@@ -16,6 +16,10 @@ public interface EnquiryServiceInterface {
 
 	public EnquiryDetails setFinalSatatus(int cid, String enquiryStatus);
 
+	public Iterable getallrejectedEnquiry();
+
+	public EnquiryDetails sendForLoanApplication(int cid);
+
 	
 
 }

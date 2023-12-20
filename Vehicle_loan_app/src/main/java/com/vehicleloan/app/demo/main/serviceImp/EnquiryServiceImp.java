@@ -104,6 +104,18 @@ public class EnquiryServiceImp implements EnquiryServiceInterface {
 			throw new EnquiryNotFound("Enquiry Detail you are serching is not present");
 	    }
 	}
+
+	@Override
+	public Iterable getallrejectedEnquiry() {
+		List<EnquiryDetails> opEnquiry=er.findAllByEnquiryStatus("Rejected");
+		return opEnquiry;
+	}
+
+	@Override
+	public EnquiryDetails sendForLoanApplication(int cid) {
+		Optional<EnquiryDetails> e=er.findById(cid);
+		return e.get();
+	}
 	
 	
 

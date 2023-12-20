@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vehicleloan.app.demo.main.model.EnquiryDetails;
+import com.vehicleloan.app.demo.main.model.EnquiryEmail;
+import com.vehicleloan.app.demo.main.serviceInterface.EmailService;
 import com.vehicleloan.app.demo.main.serviceInterface.EnquiryServiceInterface;
 @CrossOrigin("*")
 @RestController
@@ -18,6 +20,9 @@ public class EnquiryController {
 	
 	@Autowired
 	EnquiryServiceInterface esi;
+	
+	@Autowired
+	EmailService emserInt;
 	
 	@PostMapping("/saveEnquiry")
 	public ResponseEntity<EnquiryDetails>  saveEnquiry(@RequestBody EnquiryDetails ed  )
@@ -61,7 +66,25 @@ public class EnquiryController {
 		return new ResponseEntity<EnquiryDetails>(e,HttpStatus.OK);
 	}
 	
+	@GetMapping("/getallrejectedEnquiry")
+	public Iterable getallrejectedEnquiry()
+	{
+		Iterable list=esi.getallrejectedEnquiry();
+		return list;
+	}
 	
+	@GetMapping("/sendForLoanApplication")
+	public ResponseEntity<EnquiryDetails> sendForLoanApplication(@PathVariable("cid") int cid)
+	{
+		EnquiryDetails e=esi.sendForLoanApplication(cid);
+		return new ResponseEntity<EnquiryDetails>(e,HttpStatus.OK);
+	}
 	
+	@PostMapping("/sendRejectedEmail/{cid}")
+	public ResponseEntity sendRejectedEmail(@PathVariable("cid") int cid,@RequestBody EnquiryEmail e)
+	{
+		emserInt.sendRejectedEmail(cid,e);
+		return new ResponseEntity(HttpStatus.OK);
+	}
 	
 }
