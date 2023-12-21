@@ -73,7 +73,7 @@ public class EnquiryController {
 		return list;
 	}
 	
-	@GetMapping("/sendForLoanApplication")
+	@GetMapping("/sendForLoanApplication/{cid}")
 	public ResponseEntity<EnquiryDetails> sendForLoanApplication(@PathVariable("cid") int cid)
 	{
 		EnquiryDetails e=esi.sendForLoanApplication(cid);
