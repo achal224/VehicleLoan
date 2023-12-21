@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vehicleloan.app.demo.main.model.EnquiryDetails;
@@ -80,10 +81,10 @@ public class EnquiryController {
 		return new ResponseEntity<EnquiryDetails>(e,HttpStatus.OK);
 	}
 	
-	@PostMapping("/sendRejectedEmail/{cid}")
-	public ResponseEntity sendRejectedEmail(@PathVariable("cid") int cid,@RequestBody EnquiryEmail e)
+	@RequestMapping("/sendRejectedEmail/{cid}")
+	public ResponseEntity sendRejectedEmail(@PathVariable("cid") int cid)
 	{
-		emserInt.sendRejectedEmail(cid,e);
+		emserInt.sendRejectedEmail(cid);
 		return new ResponseEntity(HttpStatus.OK);
 	}
 	

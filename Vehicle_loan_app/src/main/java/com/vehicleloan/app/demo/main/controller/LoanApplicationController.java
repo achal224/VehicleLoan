@@ -18,7 +18,7 @@ import com.vehicleloan.app.demo.main.model.Customer;
 import com.vehicleloan.app.demo.main.model.EnquiryDetails;
 import com.vehicleloan.app.demo.main.serviceInterface.LoanApplicationServiceInterface;
 
-@CrossOrigin
+@CrossOrigin("*")
 @RestController
 public class LoanApplicationController {
 	

@@ -22,7 +22,6 @@ public class Customer {
 	private String customerName;
 	private int customerAge;
 	private String customerEmail;
-	private int customerTotalLoanRequired;
 	private String customerDateOfBirth;
 	private String customerGender;
 	private int customerMobileNumber;
@@ -31,6 +30,8 @@ public class Customer {
 	private String permanentAddress;
 	private String loanAppStatus;
 	private double customerAmountPaidForVehicle;
+	private int customerTotalLoanRequired;
+	private int loanDuration;
 	private int cibilScore;
 	private String remark;
 	@OneToOne(cascade = CascadeType.ALL)

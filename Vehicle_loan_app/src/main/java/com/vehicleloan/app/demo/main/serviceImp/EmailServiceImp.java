@@ -25,7 +25,7 @@ public class EmailServiceImp implements EmailService {
 	@Value("${spring.mail.username}") private String fromMail;
 
 	@Override
-	public void sendRejectedEmail(int cid,EnquiryEmail e) {
+	public void sendRejectedEmail(int cid) {
 		
 		Optional<EnquiryDetails> enq=er.findById(cid);
 		EnquiryDetails e1=enq.get();
