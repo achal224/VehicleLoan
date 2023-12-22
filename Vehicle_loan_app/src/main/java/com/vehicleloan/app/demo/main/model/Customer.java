@@ -32,6 +32,7 @@ public class Customer {
 	private double customerAmountPaidForVehicle;
 	private int customerTotalLoanRequired;
 	private int loanDuration;
+	private double emi;
 	private int cibilScore;
 	private String remark;
 	@OneToOne(cascade = CascadeType.ALL)

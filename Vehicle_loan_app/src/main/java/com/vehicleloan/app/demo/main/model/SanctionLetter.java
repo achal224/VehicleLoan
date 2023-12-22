@@ -1,5 +1,7 @@
 package com.vehicleloan.app.demo.main.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +20,7 @@ public class SanctionLetter {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int sanctionId;
+	@CreationTimestamp
 	private String sanctionDtae;
 	private String applicationName;
 	private double contactDetails;

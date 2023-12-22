@@ -13,7 +13,15 @@ public interface LoanApplicationServiceInterface {
 			MultipartFile adharcard, MultipartFile photo, MultipartFile signature, MultipartFile thumb,
 			MultipartFile bankCheque, MultipartFile salarySlips) throws IOException;
 
-	public Iterable getDataForCM();
+	public Iterable viewAppToREAndOE();
+
+	public Customer setLoanStatus(int customerId, String loanAppStatus);
+
+	public Iterable viewAppToCM();
+
+	public Customer verify(int customerId);
+
+	public Customer sendForSanction(int customerId);
 
 	
 

@@ -12,6 +12,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vehicleloan.app.demo.main.HomeRepository.CustomerRepository;
+import com.vehicleloan.app.demo.main.exception.EnquiryNotFound;
+import com.vehicleloan.app.demo.main.exception.LoanAppNotFound;
 import com.vehicleloan.app.demo.main.model.AllPersonalDocs;
 import com.vehicleloan.app.demo.main.model.Customer;
 import com.vehicleloan.app.demo.main.model.EnquiryDetails;
@@ -70,10 +72,55 @@ public class LoanApplicationServiceImp implements LoanApplicationServiceInterfac
 	}
 
 	@Override
-	public Iterable getDataForCM() {
+	public Iterable viewAppToREAndOE() {
 		List<Customer> loanapp =cr.findAllByLoanAppStatus("Created");
 		return loanapp;
 	}
+	
+	@Override
+	public Customer verify(int customerId) {
+		Optional<Customer> c=cr.findById(customerId);
+		return c.get();
+	}
+
+	@Override
+	public Customer setLoanStatus(int customerId, String loanAppStatus) {
+		Optional<Customer> l=cr.findById(customerId);
+		if(l.isPresent())
+		{
+			Customer ld=l.get();
+ 	    ld.setLoanAppStatus(loanAppStatus);;
+		
+ 	    return  cr.save(ld);
+ 	    
+		}
+		else 
+		{
+			throw new LoanAppNotFound("Loan Application Detail you are serching is not present");
+	    }
+	}
+
+	@Override
+	public Iterable viewAppToCM() {
+		List<Customer> loanapp =cr.findAllByLoanAppStatus("Approved_by_OE");
+		return loanapp;
+	}
+
+
+	@Override
+	public Customer sendForSanction(int customerId) {
+		Optional<Customer> c=cr.findById(customerId);
+		Customer cust=c.get();
+		int p=cust.getCustomerTotalLoanRequired();
+		int n=(cust.getLoanDuration())*12;
+		double r=8/12;
+		double emi=p*r*Math.pow(1+r, n)/(Math.pow(1+r, n)-1);
+		cust.setEmi(emi);
+		cr.save(cust);
+		return cust;
+	}
+
+	
 	
 	
 

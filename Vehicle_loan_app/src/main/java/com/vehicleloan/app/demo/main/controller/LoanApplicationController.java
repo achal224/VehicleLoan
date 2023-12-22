@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -41,11 +42,39 @@ public class LoanApplicationController {
 		return new ResponseEntity<Customer>(e,HttpStatus.CREATED);
 	}
 	
-	@GetMapping("getDataForCM")
-	 public Iterable getDataForCM()
+	@GetMapping("/viewAppToREAndOE")
+	 public Iterable viewAppToREAndOE()
 	 {
-		Iterable list=lasi.getDataForCM();
+		Iterable list=lasi.viewAppToREAndOE();
 		return list;
 	 }
+	
+	@GetMapping("/verify/{customerId}")
+	public ResponseEntity<Customer> verify(@PathVariable("customerId") int customerId)
+	{
+		Customer c=lasi.verify(customerId);
+		return new ResponseEntity<Customer>(c,HttpStatus.OK);
+	}
+	
+	@GetMapping("/setLoanStatus/{customerId}/{loanAppStatus}")
+	public ResponseEntity<Customer> setLoanStatus(@PathVariable("customerId") int customerId,@PathVariable("loanAppStatus") String loanAppStatus)
+	{
+		Customer e=lasi.setLoanStatus(customerId,loanAppStatus);
+		return new ResponseEntity<Customer>(e,HttpStatus.OK);
+	}
+	
 
+	@GetMapping("/viewAppToCM")
+	 public Iterable viewAppToCM()
+	 {
+		Iterable list=lasi.viewAppToCM();
+		return list;
+	 }
+	
+	@GetMapping("/sendForSanction/{customerId}")
+	public ResponseEntity<Customer> sendForSanction(@PathVariable("customerId") int customerId)
+	{
+		Customer e=lasi.sendForSanction(customerId);
+		return new ResponseEntity<Customer>(e,HttpStatus.OK);
+	}
 }
