@@ -40,8 +40,8 @@ public class Customer {
    private AllPersonalDocs allpersonalDocs;
    @OneToOne(cascade = CascadeType.ALL)
    private Profession prefession;
-   @OneToOne(cascade = CascadeType.ALL)
-   private CurrentLoanDetails currentloandetails;
+  // @OneToOne(cascade = CascadeType.ALL)
+  // private CurrentLoanDetails currentloandetails;
   @OneToOne(cascade = CascadeType.ALL)
   private PreviousLoan previousloan;
  @OneToOne(cascade = CascadeType.ALL)

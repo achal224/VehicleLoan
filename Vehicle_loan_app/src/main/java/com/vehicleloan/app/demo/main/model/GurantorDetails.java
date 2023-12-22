@@ -16,16 +16,16 @@ public class GurantorDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int GurantorId;
-	private String GurantorName;
-	private String GurantordateOfBirth;
-	private String GurantorrealtionshipwithCustomer;
-	private long GurantorMobileNumber;
-	private long GurantorAdharCardNo;
-	private String GurantorMortgagedetails;
-	private String GurantorJobdetails;
-	private String GurantorLocalAddress;
-	private String GurantorPermanentAddress;
+	private int gurantorId;
+	private String gurantorName;
+	private String gurantordateOfBirth;
+	private String gurantorrealtionshipwithCustomer;
+	private long gurantorMobileNumber;
+	private long gurantorAdharCardNo;
+	private String gurantorMortgagedetails;
+	private String gurantorJobdetails;
+	private String gurantorLocalAddress;
+	private String gurantorPermanentAddress;
 	
 
 }
