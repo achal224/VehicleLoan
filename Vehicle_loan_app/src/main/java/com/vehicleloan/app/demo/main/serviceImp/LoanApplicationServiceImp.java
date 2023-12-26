@@ -113,9 +113,12 @@ public class LoanApplicationServiceImp implements LoanApplicationServiceInterfac
 		Customer cust=c.get();
 		int p=cust.getCustomerTotalLoanRequired();
 		int n=(cust.getLoanDuration())*12;
-		double r=8/12;
-		double emi1=p*r*Math.pow(1+r, n)/(Math.pow(1+r, n)-1);
-		cust.setEmi(emi1);
+		double r=8;
+        double monthlyInterestRate = r / 100 / 12;
+
+        double emi =  (p * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, n))
+                / (Math.pow(1 + monthlyInterestRate, n) - 1);		
+        cust.setEmi(emi);
 		cr.save(cust);
 		return cust;
 	}
