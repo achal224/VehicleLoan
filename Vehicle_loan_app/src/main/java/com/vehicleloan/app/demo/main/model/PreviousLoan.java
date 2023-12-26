@@ -18,13 +18,13 @@ public class PreviousLoan {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int previousLoanId;
-	private double PreviousLoanAmount;
-	private int PreviousLoanTenure;
-	private double PreviousLoanpaidAmount;
-	private double PreviousLoanremainingAmount;
-	private int PreviousLoanDeafaulterCount;
-	private String PreviousLoanStatus;
-	private String PreviousLoanRemark;
+	private double previousLoanAmount;
+	private int previousLoanTenure;
+	private double previousLoanpaidAmount;
+	private double previousLoanremainingAmount;
+	private int previousLoanDeafaulterCount;
+	private String previousLoanStatus;
+	private String previousLoanRemark;
 	
 
 }

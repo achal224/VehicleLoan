@@ -73,7 +73,7 @@ public class LoanApplicationServiceImp implements LoanApplicationServiceInterfac
 
 	@Override
 	public Iterable viewAppToREAndOE() {
-		List<Customer> loanapp =cr.findAllByLoanAppStatus("Created");
+		List<Customer> loanapp =cr.findAllByLoanAppStatusOrLoanAppStatus("Created","details and documents verified");
 		return loanapp;
 	}
 	
@@ -102,7 +102,7 @@ public class LoanApplicationServiceImp implements LoanApplicationServiceInterfac
 
 	@Override
 	public Iterable viewAppToCM() {
-		List<Customer> loanapp =cr.findAllByLoanAppStatus("Approved_by_OE");
+		List<Customer> loanapp =cr.findAllByLoanAppStatusOrLoanAppStatus("Created","details and documents verified");
 		return loanapp;
 	}
 
@@ -114,8 +114,8 @@ public class LoanApplicationServiceImp implements LoanApplicationServiceInterfac
 		int p=cust.getCustomerTotalLoanRequired();
 		int n=(cust.getLoanDuration())*12;
 		double r=8/12;
-		double emi=p*r*Math.pow(1+r, n)/(Math.pow(1+r, n)-1);
-		cust.setEmi(emi);
+		double emi1=p*r*Math.pow(1+r, n)/(Math.pow(1+r, n)-1);
+		cust.setEmi(emi1);
 		cr.save(cust);
 		return cust;
 	}

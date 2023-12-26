@@ -2,10 +2,12 @@ package com.vehicleloan.app.demo.main.model;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,15 +26,18 @@ public class SanctionLetter {
 	private String sanctionDtae;
 	private String applicationName;
 	private double contactDetails;
-	private String producthomeequity;
-	private double loanAmtSanctioned;
-	private String interstType;
-	private int rateofInterst;
-	private int loantenure;
+	
+	private double loanAmtSanctioned;//patch
+	private String interstType;//dropdown simple and compound
+	private int rateofInterst;//fixed string interpolation {{}}
+	private int loantenure;//patch
 	private double monthlyEmiAmount;
-	private String modeOfPayment;
-	private String remarks;
-	private String termsCondition;
-	private String status;
+	private String modeOfPayment;// fixed online
+	private String remarks;//input box
+	
+	@Lob
+	@Column(length = 999999999)
+	private byte[] pdf;
+	private String status;//fixed loan sanctioned
 	
 }

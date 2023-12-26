@@ -13,4 +13,6 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
 	public Optional<Customer> findByCustomerEmail(String customerEmail);
 
+	public List<Customer> findAllByLoanAppStatusOrLoanAppStatus(String string, String string2);
+
 }
