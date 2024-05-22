@@ -29,7 +29,9 @@ public class EnquiryController {
 	public ResponseEntity<EnquiryDetails>  saveEnquiry(@RequestBody EnquiryDetails ed  )
 	{
 		EnquiryDetails e= esi.saveEnquiry(ed);
+		System.out.println("Git ");
 		return new ResponseEntity<EnquiryDetails>(e,HttpStatus.CREATED);
+		
 	}
 	
 	@GetMapping("/viewEnquiryForRM")
